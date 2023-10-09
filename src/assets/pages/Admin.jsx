@@ -14,7 +14,7 @@ export default function Admin() {
             <div className={`flex break-words flex-col overflow-hidden h-screen ${!menuOpen ? "w-20": "w-64"} duration-150 bg-black bg-gradient-to-b from-slate-950 to-slate-800`}>
                 <Link to='/admin' className={`text-white font-[Roboto] flex items-center justify-center text-center mt-4 text-2xl origin-left hover:text-yellow-500`}>{!menuOpen ? (<RiAdminFill/>) : (<><RiAdminFill/> <p>Administrativo</p></>)}</Link>
                 <Link to='/admin/newBooking' className="text-white font-[Roboto] text-center mt-4 text-2xl flex items-center justify-center origin-left hover:bg-yellow-500 py-2"><AiOutlineUserAdd /> <p className={`${!menuOpen ? "hidden" : "block"}`}>Nova reserva</p></Link>
-                <Link to='/admin/allBookings' className="text-white font-[Roboto] text-2xl flex items-center justify-center hover:bg-yellow-500 py-2 origin-left"><HiClipboardList/> <p className={`${!menuOpen ? "hidden" : "block"}`}>Visualizar reservas</p></Link>
+                <Link to='/admin/allBookings' className="text-white font-[Roboto] text-2xl flex items-center justify-center hover:bg-yellow-500 py-2 origin-left"><HiClipboardList/> <p className={`${!menuOpen ? "hidden" : "block"} origin-left overflow-hidden whitespace-nowrap`}>Visualizar reservas</p></Link>
             </div>
             <div className="flex flex-col w-full">
                 <header className="w-full p-2 flex justify-between">
