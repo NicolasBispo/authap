@@ -2,12 +2,29 @@ import axios from "axios"
 import moment from "moment"
 import { useEffect, useState } from "react"
 
+import socketIoClient from 'socket.io-client'
+
 export default function AllBookings() {
 
     const [data, setData] = useState([])
 
+    const endpoint = "http://localhost:3000/bookings"
+
+    useEffect(()=>{
+        const socket = socketIoClient(endpoint)
+
+
+        socket.on('bookingUpdate', (updatedData)=>{
+            setData(updatedData)
+        })
+
+        socket.emit('requestInitialData')
+
+        return () => socket.disconnect()
+    },[])
+
     useEffect(() => {
-        axios.get('http://localhost:3000/bookings').then(resp => {
+        axios.get(endpoint).then(resp => {
             console.log('resp:', resp)
             setData(resp.data)
         })
